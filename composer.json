@@ -1,0 +1,19 @@
+{
+    "name": "elgentos/module-prismicio-sample-data",
+    "description": "Magento 2 - Prismic.io Sample Data",
+    "type": "magento2-module",
+    "license": "OSL-3.0",
+    "authors": [
+        {
+            "name": "Jeroen Boersma",
+            "email": "jeroen@elgentos.nl"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "elgentos/module-prismicio": "dev-master"
+    },
+    "autoload": {
+        "files": [ "registration.php" ]
+    }
+}
