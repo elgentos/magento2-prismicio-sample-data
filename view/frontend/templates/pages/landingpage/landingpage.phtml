@@ -1,0 +1,30 @@
+<?php
+/** @var $block \Elgentos\PrismicIO\Block\Template */
+/** @var $escaper \Magento\Framework\Escaper */
+
+$uniqueId = '_' . uniqid();
+?>
+<script>
+    function initVariables<?= $uniqueId ?>() {
+        return {
+            backgroundColor: 'bg-<?= $block->getChildHtml("prismicio_landingpage.background_color"); ?>'
+        }
+    }
+</script>
+
+<div x-data="initVariables<?= $uniqueId ?>()">
+    <div class="w-full pb-6 mb-6" :class="backgroundColor">
+        <div class="container relative">
+            <?= $block->getChildHtml("static.usps") ?>
+
+            <div class="w-full lg:w-8/12 mx-auto pl-2 lg:pl-0 pr-2 lg:pr-0">
+                <div class="text-<?= $block->getChildHtml("prismicio_landingpage.text_align") ?> prose ">
+                    <?= $block->getChildHtml("prismicio_landingpage.title"); ?>
+                    <?= $block->getChildHtml("prismicio_landingpage.description"); ?>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <?= $block->getChildHtml('prismicio_landingpage.slices') ?>
+</div>

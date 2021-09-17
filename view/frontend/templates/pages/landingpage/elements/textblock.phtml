@@ -1,0 +1,25 @@
+<?php
+/** @var $block \Elgentos\PrismicIO\Block\Template */
+/** @var $escaper \Magento\Framework\Escaper */
+
+$center = $block->getChildHtml("text_block.center") == 1 ? 'text-center' : '';
+$link   = $block->getChildHtml('text_block.link');
+?>
+
+<div class="container">
+    <div class="w-full lg:w-8/12 mx-auto pl-2 lg:pl-0 pr-2 lg:pr-0">
+        <div class="prose max-w-none my-12 <?= $center ?>">
+            <?= $block->getChildHtml("text_block.content") ?>
+            <?php if ($link) : ?>
+                <div class="mt-8">
+                    <a class="btn btn-tertiary"
+                       href="<?= $escaper->escapeUrl($link) ?>"
+                       title="<?= strip_tags($block->getChildHtml('text_block.link_title'),
+                           ['strong', 'b']) ?>">
+                        <?= $block->getChildHtml("text_block.link_title") ?>
+                    </a>
+                </div>
+            <?php endif ?>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+
+    <update handle="prismicio_slices_text_block"/>
+    <update handle="prismicio_slices_large_image_with_text"/>
+    <update handle="prismicio_slices_list_items_with_image"/>
+    <update handle="prismicio_slices_full_width_image"/>
+
+    <body>
+        <referenceBlock name="page.main.title" remove="true"/>
+
+        <block name="prismicio.landing_page.page_title" class="Elgentos\PrismicIO\Block\Layout\PageTitle">
+            <block class="Elgentos\PrismicIO\Block\Dom\Plain" template="data.meta_title.0.text" />
+        </block>
+        <block name="prismicio.landing_page.meta_description" class="Elgentos\PrismicIO\Block\Layout\Metadata\Description">
+            <block class="Elgentos\PrismicIO\Block\Dom\Plain" template="data.meta_description.0.text" />
+        </block>
+
+        <block class="Elgentos\PrismicIO\Block\Template" template="Elgentos_PrismicIO::pages/landing_page/landing_page.phtml">
+            <arguments>
+                <argument name="reference" xsi:type="string">data</argument>
+            </arguments>
+
+            <block name="prismicio_landingpage.title" class="Elgentos\PrismicIO\Block\Dom\Text" template="title"/>
+            <block name="prismicio_landingpage.description" class="Elgentos\PrismicIO\Block\Dom\RichText" template="description"/>
+            <block name="prismicio_landingpage.slices" class="Elgentos\PrismicIO\Block\Slices" template="body" />
+        </block>
+
+        <move element="prismicio_landingpage" destination="prismicio_content" />
+        <move element="text_block" destination="prismicio_landingpage.slices" as="prismicio_landingpage.slices.text_block" />
+        <move element="large_image_with_text" destination="prismicio_landingpage.slices" as="prismicio_landingpage.slices.large_image_with_text" />
+        <move element="list_items_with_image" destination="prismicio_landingpage.slices" as="prismicio_landingpage.slices.list_items_with_image" />
+        <move element="full_width_image" destination="prismicio_landingpage.slices" as="prismicio_landingpage.slices.full_width_image" />
+    </body>
+</page>

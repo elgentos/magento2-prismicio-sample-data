@@ -1,0 +1,33 @@
+<?php
+/** @var $block \Elgentos\PrismicIO\Block\Template */
+/** @var $escaper \Magento\Framework\Escaper */
+$title    = $escaper->escapeHtml($block->getChildHtml('alt'));
+$linkUrl  = $escaper->escapeUrl($block->getChildHtml('link.url'));
+$imageUrl = $escaper->escapeUrl($block->getChildHtml('url'));
+$width    = $escaper->escapeHtml($block->getChildHtml('width'));
+$height   = $escaper->escapeHtml($block->getChildHtml('height'));
+
+$mobileUrl   = $escaper->escapeUrl($block->getChildHtml('mobile.url'));
+$htmlClasses = $escaper->escapeHtmlAttr($block->getData('html_classes'));
+?>
+<div class="<?= $htmlClasses ?>">
+    <?php if ($linkUrl) : ?>
+        <a href="<?= $linkUrl ?>" title="<?= $title ?>">
+    <?php endif; ?>
+        <div>
+            <picture>
+                <?php if (isset($mobileUrl)) : ?>
+                    <source srcset="<?= $escaper->escapeUrl($mobileUrl) ?>"
+                            media="(max-width: 767px)">
+                <?php endif; ?>
+                <source srcset="<?= $escaper->escapeUrl($imageUrl) ?>"
+                        media="(min-width: 768px)">
+                <img src="<?= $imageUrl ?>" alt="<?= $title ?>"
+                     width="<?= $width ?>" height="<?= $height ?>"/>
+            </picture>
+        </div>
+        <?= $block->getChildHtml('content') ?>
+    <?php if ($linkUrl): ?>
+        </a>
+    <?php endif; ?>
+</div>

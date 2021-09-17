@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+
+    <body>
+        <block name="text_block" class="Elgentos\PrismicIO\Block\Template" template="Elgentos_PrismicIO::pages/landingpages/elements/textblock.phtml">
+            <block class="Elgentos\PrismicIO\Block\Dom\Plain" name="text_block.center" template="primary.center"/>
+            <block class="Elgentos\PrismicIO\Block\Dom\RichText" name="text_block.content" template="primary.content"/>
+            <block class="Elgentos\PrismicIO\Block\Dom\Link" name="text_block.link" template="primary.link"/>
+            <block class="Elgentos\PrismicIO\Block\Dom\Text" name="text_block.link_title" template="primary.link_title"/>
+        </block>
+    </body>
+</page>
