@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+
+    <body>
+        <block name="list_items_with_image" class="Elgentos\PrismicIO\Block\Template" template="Elgentos_PrismicIO::pages/landingpages/elements/listitemwithimage.phtml">
+            <block class="Elgentos\PrismicIO\Block\Dom\Plain" name="list.item.width" template="primary.image.dimensions.width"/>
+            <block class="Elgentos\PrismicIO\Block\Dom\Plain" name="list.item.height" template="primary.image.dimensions.height"/>
+            <block class="Elgentos\PrismicIO\Block\Dom\Plain" name="list.item.alt" template="primary.image.alt"/>
+            <block class="Elgentos\PrismicIO\Block\Dom\Plain" name="list.item.url" template="primary.image.url"/>
+            <block class="Elgentos\PrismicIO\Block\Dom\RichText" name="list.item.title" template="primary.header"/>
+
+            <block name="list_items_with_image.items" class="Elgentos\PrismicIO\Block\Group" template="items">
+                <block class="Elgentos\PrismicIO\Block\Template" template="Elgentos_PrismicIO::core/items.phtml">
+                    <block name="list_items_with_image.title" class="Elgentos\PrismicIO\Block\Dom\RichText" template="label"/>
+                    <block name="list_items_with_image.icon" class="Elgentos\PrismicIO\Block\Dom\Plain" template="icon.0.text"/>
+                </block>
+            </block>
+        </block>
+    </body>
+</page>

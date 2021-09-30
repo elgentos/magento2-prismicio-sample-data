@@ -1,0 +1,19 @@
+<?php
+/** @var $block \Elgentos\PrismicIO\Block\Template */
+/** @var $escaper \Magento\Framework\Escaper */
+$title = $escaper->escapeHtml($block->getChildHtml("list.item.alt"));
+$imageUrl = $escaper->escapeUrl($block->getChildHtml("list.item.url"));
+$width = $escaper->escapeHtml($block->getChildHtml("list.item.width"));
+$height = $escaper->escapeHtml($block->getChildHtml("list.item.height"));
+?>
+<div class="container">
+    <div class="w-full lg:w-8/12 mx-auto pl-2 lg:pl-0 pr-2 lg:pr-0">
+        <h2><?= $block->getChildHtml("list.item.title") ?></h2>
+        <ul>
+            <?= $block->getChildHtml("list_items_with_image.items") ?>
+        </ul>
+        <div>
+            <img src="<?= $imageUrl ?>" alt="<?= $title ?>" width="<?= $width ?>" height="<?= $height ?>"/>
+        </div>
+    </div>
+</div>

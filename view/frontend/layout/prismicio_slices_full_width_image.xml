@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <block name="full_width_image" class="Elgentos\PrismicIO\Block\Container"
+               template="primary">
+            <action method="addData">
+                <argument name="data" xsi:type="array">
+                    <item name="htmlTag" xsi:type="string">div</item>
+                    <item name="htmlClass" xsi:type="string">container</item>
+                </argument>
+            </action>
+            <block class="Elgentos\PrismicIO\Block\Template"
+                   template="Elgentos_PrismicIO::pages/landingpages/elements/fullwidthimage.phtml">
+                <arguments>
+                    <argument name="reference" xsi:type="string">full_width_image</argument>
+                    <argument name="html_classes" xsi:type="string">w-full lg:w-8/12 mx-auto pl-2 lg:pl-0 pr-2 lg:pr-0</argument>
+                </arguments>
+
+                <block class="Elgentos\PrismicIO\Block\Dom\Plain" name="full_width.image.width" as="width" template="dimensions.width"/>
+                <block class="Elgentos\PrismicIO\Block\Dom\Plain" name="full_width.image.height" as="height" template="dimensions.height"/>
+                <block class="Elgentos\PrismicIO\Block\Dom\Plain" name="full_width.image.alt" as="alt" template="alt"/>
+                <block class="Elgentos\PrismicIO\Block\Dom\Plain" name="full_width.image.url" as="url" template="url"/>
+                <block class="Elgentos\PrismicIO\Block\Dom\Link" name="full_width.image.link.url" as="link.url" template="full_width_image_url"/>
+
+                <!-- mobile url -->
+                <block class="Elgentos\PrismicIO\Block\Dom\Plain" name="full_width.image.mobile.url" as="mobileUrl" template="mobile.url"/>
+            </block>
+        </block>
+    </body>
+</page>
